@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nishu Didi's Birthday Chaos 🎀</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    color: #4b204d;
+    text-align: center;
+    background: linear-gradient(135deg, #ffe0ef, #eadfff, #fff0c9);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  section { padding: 55px 20px; }
+  .hero { min-height: 95vh; display: grid; place-items: center; }
+  .card {
+    max-width: 720px; width: 100%; margin: auto;
+    padding: 30px 22px; border-radius: 28px;
+    background: rgba(255,255,255,.82);
+    box-shadow: 0 12px 40px #a855f733;
+    border: 2px solid white;
+  }
+  .tag { color: #a21caf; font-weight: bold; letter-spacing: 2px; }
+  h1 { font-size: clamp(2.3rem, 8vw, 4.5rem); margin: 15px 0; }
+  h2 { font-size: clamp(1.7rem, 5vw, 2.5rem); }
+  p { line-height: 1.8; }
+  .emoji { font-size: 4rem; animation: bounce 1.5s infinite; }
+  @keyframes bounce {
+    50% { transform: translateY(-12px) rotate(5deg); }
+  }
+  button {
+    border: 0; border-radius: 999px; padding: 15px 22px;
+    margin: 8px; font-size: 1rem; font-weight: bold;
+    color: white; background: #e84393; cursor: pointer;
+    box-shadow: 0 5px 0 #b52c70; transition: .2s;
+  }
+  button:hover { transform: translateY(-3px); }
+  button:active { transform: translateY(2px); box-shadow: none; }
+  .purple { background: #9157cf; box-shadow: 0 5px 0 #6637a0; }
+  .yellow { background: #eea522; box-shadow: 0 5px 0 #bc7811; }
+  .hidden { display: none; }
+  .reveal {
+    background: #fff1f7; border-radius: 20px; padding: 22px;
+    margin: 22px auto; max-width: 560px;
+    animation: pop .5s ease;
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .letter { text-align: left; white-space: pre-line; }
+  .small { font-size: .9rem; color: #80567e; }
+  .heart {
+    position: fixed; bottom: -30px; pointer-events: none;
+    z-index: 10; animation: floatUp 4s linear forwards;
+  }
+  @keyframes floatUp {
+    to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+  }
+  canvas {
+    position: fixed; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 20;
+  }
+  footer { padding: 25px; }
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+
+<section class="hero">
+  <div class="card">
+    <div class="tag">⚠️ OFFICIAL SIBLING ANNOUNCEMENT ⚠️</div>
+    <div class="emoji">🎂</div>
+    <h1>HAPPY BIRTHDAY,<br>NISHU DIDI!! 💗</h1>
+    <p>
+      To my favorite unpaid therapist, professional drama queen,
+      and lifetime supplier of sibling trauma. 😭😂
+    </p>
+    <p><strong>Today, the world revolves around YOU.</strong><br>
+      Tomorrow, your annoying sibling returns. 🤡</p>
+    <button onclick="startParty()">🎉 START THE CHAOS</button>
+    <button class="purple" onclick="toggleMusic()" id="musicBtn">
+      🎵 Play birthday tune
+    </button>
+    <p class="small">Warning: extreme cuteness and emotional damage ahead.</p>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <div class="emoji">🎁</div>
+    <h2>A VERY IMPORTANT GIFT</h2>
+    <p>Didi, your present is extremely expensive.<br>
+      It cost me approximately... ALL MY LOVE. 🥹</p>
+    <button onclick="revealGift()">OPEN YOUR GIFT 🎁</button>
+    <div id="gift" class="reveal hidden">
+      <div class="emoji">💝</div>
+      <h2>CONGRATULATIONS!!</h2>
+      <p>You have officially won...</p>
+      <h2>🥁 UNLIMITED HUGS 🥁</h2>
+      <p>One million hugs, unlimited sibling loyalty,
+        emergency snacks, and a lifetime of annoying you.</p>
+      <p><strong>NO REFUNDS. NO EXCHANGES. 😂💗</strong></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <div class="emoji">💌</div>
+    <h2>OKAY, JOKES ASIDE...</h2>
+    <p>Even professional idiots have feelings. Click below. 🥹</p>
+    <button class="purple" onclick="revealLetter()">READ YOUR LETTER 💗</button>
+    <div id="letter" class="reveal letter hidden">
+      <h2>To my dearest Nishu Didi 🫶</h2>
+      Happy Birthday to the most special sister ever! 💗
+
+      I know I might annoy you, tease you, steal your things,
+      or act like the most irritating person on Earth.
+      (Okay, maybe I AM. 😂)
+
+      But underneath all the jokes, I want you to know
+      how grateful I am to have you in my life.
+
+      Thank you for being my sister, for the little things
+      you do, and for all the memories we share.
+      You make my world better just by being in it.
+
+      I hope this new year brings you happiness, good health,
+      success, peace, lots of laughter, and everything
+      your beautiful heart wishes for.
+
+      No matter how much we fight or tease each other,
+      you'll always be my Nishu Didi, and I'll always
+      be cheering for you.
+
+      I LOVE YOU MORE THAN I CAN EXPLAIN. 🥹💗
+
+      Happy Birthday, meri pyari didi! 🎂🫂
+
+      Forever your annoying sibling,
+      Your favorite human (obviously). 💅
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <div class="emoji">🎊</div>
+    <h2>ONE LAST THING...</h2>
+    <p>Make a wish, birthday girl! 🌟</p>
+    <p>Close your eyes, imagine your cake, and get ready...</p>
+    <button class="yellow" onclick="birthdayExplosion()">
+      🎉 RELEASE THE CONFETTI!!
+    </button>
+    <h2 id="finalMessage" class="hidden">
+      HAPPY BIRTHDAY, NISHU DIDI!! 🥳💗
+    </h2>
+    <p>Made with approximately 1000% love and 0% maturity. 😂</p>
+  </div>
+</section>
+
+<footer>
+  <p>💗 Nishu Didi's Birthday Website 💗</p>
+  <p class="small">A tiny website for a very big place in my heart.</p>
+</footer>
+
+<script>
+  const canvas = document.getElementById("confetti");
+  const ctx = canvas.getContext("2d");
+  let pieces = [];
+  let animationRunning = false;
+
+  function resizeCanvas() {
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = innerWidth * dpr;
+    canvas.height = innerHeight * dpr;
+    canvas.style.width = innerWidth + "px";
+    canvas.style.height = innerHeight + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  function burst(amount = 140) {
+    for (let i = 0; i < amount; i++) {
+      pieces.push({
+        x: Math.random() * innerWidth,
+        y: -20 - Math.random() * innerHeight * .5,
+        size: 4 + Math.random() * 8,
+        speed: 2 + Math.random() * 5,
+        drift: (Math.random() - .5) * 3,
+        angle: Math.random() * 6,
+        spin: (Math.random() - .5) * .2,
+        color: ["#ff4fa3","#a855f7","#ffc857",
+                "#ff7b72","#56cfe1","#72df9e"]
+                [Math.floor(Math.random() * 6)]
+      });
+    }
+    if (!animationRunning) {
+      animationRunning = true;
+      requestAnimationFrame(drawConfetti);
+    }
+  }
+
+  function drawConfetti() {
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    pieces.forEach(p => {
+      p.y += p.speed;
+      p.x += p.drift;
+      p.angle += p.spin;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size*.7);
+      ctx.restore();
+    });
+    pieces = pieces.filter(p => p.y < innerHeight + 30);
+    if (pieces.length) requestAnimationFrame(drawConfetti);
+    else {
+      animationRunning = false;
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+    }
+  }
+
+  function startParty() {
+    burst(220);
+    for (let i = 0; i < 14; i++) {
+      setTimeout(createHeart, i * 180);
+    }
+  }
+
+  function revealGift() {
+    document.getElementById("gift").classList.remove("hidden");
+    burst(160);
+    createHeart();
+  }
+
+  function revealLetter() {
+    document.getElementById("letter").classList.remove("hidden");
+    burst(100);
+  }
+
+  function birthdayExplosion() {
+    document.getElementById("finalMessage").classList.remove("hidden");
+    burst(350);
+    for (let i = 0; i < 25; i++) {
+      setTimeout(createHeart, i * 100);
+    }
+  }
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = ["💗","💖","💕","💝","✨"]
+      [Math.floor(Math.random() * 5)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 18 + Math.random() * 24 + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 4200);
+  }
+
+  // A little original tune made with browser-generated notes.
+  // Audio starts only when the visitor presses the music button.
+  let audioCtx = null;
+  let musicOn = false;
+  let musicTimer = null;
+
+  function toggleMusic() {
+    if (musicOn) {
+      clearInterval(musicTimer);
+      musicOn = false;
+      document.getElementById("musicBtn").textContent =
+        "🎵 Play birthday tune";
+      if (audioCtx) audioCtx.suspend();
+      return;
+    }
+
+    const AudioContextClass =
+      window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) {
+      alert("Sorry! This browser does not support the music button.");
+      return;
+    }
+    if (!audioCtx) audioCtx = new AudioContextClass();
+    audioCtx.resume();
+
+    musicOn = true;
+    document.getElementById("musicBtn").textContent =
+      "🔇 Stop birthday tune";
+
+    const notes = [523,523,587,523,698,659,
+                   523,523,587,523,784,698,
+                   523,523,1046,880,698,659,587,
+                   932,932,880,698,784,698];
+    let index = 0;
+
+    function playNote() {
+      if (!musicOn) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = notes[index % notes.length];
+      gain.gain.setValueAtTime(.0001, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(
+        .12, audioCtx.currentTime + .03);
+      gain.gain.exponentialRampToValueAtTime(
+        .0001, audioCtx.currentTime + .3);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + .32);
+      index++;
+    }
+
+    playNote();
+    musicTimer = setInterval(playNote, 380);
+  }
+</script>
+</body>
+</html>
